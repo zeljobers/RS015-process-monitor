@@ -10,7 +10,7 @@ Pre requirements for building from source are:
 - meson
 - ninja
 
-To build the repository simly do:
+To build the repository simply do:
 ```
 # clone the repo
 git clone https://github.com/MATF-RS18/RS015-process-monitor.git ProcessMonitor
