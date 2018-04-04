@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
   putenv((char*)"GTK_THEME=Adwaita-dark");
 
   auto app = Gtk::Application::create(argc, argv, "org.gnome.process-monitor");
-  auto window = PorcessMonitor::MainWindow::Create();
+  auto window = ProcessMonitor::MainWindow::Create();
 
   return app->run(*window);
 }

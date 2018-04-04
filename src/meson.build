@@ -7,6 +7,16 @@ gtkdep = dependency('gtkmm-3.0')
 src = [
   'main.cc',
 
+  # widgets
+  'widgets/graphview.cc',
+  'widgets/graphview.h',
+  'widgets/processview.cc',
+  'widgets/processview.h',
+
+  # common
+  'common/core.cc',
+  'common/core.h',
+
   # windows
   'windows/mainwindow.cc',
   'windows/mainwindow.h'
