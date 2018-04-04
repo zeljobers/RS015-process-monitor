@@ -17,7 +17,7 @@ ProcessView::ProcessView(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builde
   Gtk::Widget(cobject),
   builder_(refGlade)
 {
-  builder_->get_widget("processview", treeprocess_);
+  builder_->get_widget("treeprocess", treeprocess_);
 }
 
 }
