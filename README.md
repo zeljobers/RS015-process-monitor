@@ -1,6 +1,8 @@
 # Process Monitor
 
-Process Monitor is a simple... well.. process monitor for Linux that uses Gtk 3 for the UI. Not sure what wisdom you expected with reading this line....
+Process Monitor is a simple, Gtk based, process monitor for Linux.
+
+For the roadmap please see the [projects page](https://github.com/MATF-RS18/RS015-process-monitor/projects/1). 
 
 ## Building from source
 
@@ -23,6 +25,12 @@ ninja -C build
 # launch the app
 ./build/src/process-monitor
 ```
+
+## Contributing
+
+Use MVVM pattern when adding new pieces of code.
+
+Use [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) for the coding style.
 
 ## License
 
