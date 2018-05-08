@@ -5,10 +5,10 @@
 
 namespace ProcessMonitor {
 
-class GraphView : public Gtk::Box {
+class ResourceView : public Gtk::Box {
  public:
-  static GraphView* Create();
-  GraphView(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &refGlade);
+  static ResourceView* Create();
+  ResourceView(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &refGlade);
 
  private:
   Glib::RefPtr<Gtk::Builder> builder_;

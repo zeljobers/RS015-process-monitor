@@ -8,10 +8,10 @@ src = [
   'main.cc',
 
   # widgets
-  'widgets/graphview.cc',
-  'widgets/graphview.h',
   'widgets/processview.cc',
   'widgets/processview.h',
+  'widgets/resourceview.cc',
+  'widgets/resourceview.h',
 
   # common
   'common/core.cc',

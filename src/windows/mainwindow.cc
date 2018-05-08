@@ -3,7 +3,7 @@
 #include <iostream>
 #include <gtkmm.h>
 
-#include "widgets/graphview.h"
+#include "widgets/resourceview.h"
 #include "widgets/processview.h"
 
 namespace ProcessMonitor {
@@ -26,7 +26,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>
   builder_->get_widget("notebookmain", notebookmain_);
 
   // fill up notebook
-  graphview_ = GraphView::Create();
+  graphview_ = ResourceView::Create();
   notebookmain_->append_page(*graphview_);
 
   processview_ = ProcessView::Create();

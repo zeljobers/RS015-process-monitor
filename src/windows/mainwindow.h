@@ -3,7 +3,7 @@
 
 #include <gtkmm.h>
 
-#include "widgets/graphview.h"
+#include "widgets/resourceview.h"
 #include "widgets/processview.h"
 
 namespace ProcessMonitor {
@@ -22,7 +22,7 @@ class MainWindow : public Gtk::Window {
   Gtk::RadioButton* radioresources_;
   Gtk::Notebook* notebookmain_;
   ProcessView* processview_;
-  GraphView* graphview_;
+  ResourceView* graphview_;
 };
 
 }
