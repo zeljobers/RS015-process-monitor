@@ -1,12 +1,13 @@
 #include "core.h"
 
+#include <sys/types.h>
+#include <sys/sysinfo.h>
 #include <dirent.h>
 #include <fstream>
 #include <iostream>
 #include <vector>
 #include <stdexcept>
 #include <string>
-#include <sys/types.h>
 
 namespace ProcessMonitor {
 
@@ -88,6 +89,20 @@ void Core::refresh_pids() {
 
     if (curnum != -1) // TODO: Ensure array size
       pids_.push_back(curnum);
+  }
+}
+
+SysMemoryInfo& Core::get_memory_usage() {
+  return mem_info_;
+}
+
+void Core::refresh_resources() {
+  struct sysinfo info; // TODO: Make a local variable instead
+  if (sysinfo(&info) == 0) {
+    mem_info_.memory_usage = info.totalram - info.freeram;
+    mem_info_.swap_usage = info.totalswap - info.freeswap;
+    mem_info_.total_memory = info.totalram;
+    mem_info_.total_swap = info.totalswap;
   }
 }
 

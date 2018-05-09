@@ -1,11 +1,12 @@
 #ifndef PROCESSMONITOR_COMMON_CORE_H_
 #define PROCESSMONITOR_COMMON_CORE_H_
 
+#include <sys/types.h>
 #include <dirent.h>
 #include <vector>
-#include <sys/types.h>
 
 #include "processinfo.h"
+#include "sysmemoryinfo.h"
 
 namespace ProcessMonitor {
 
@@ -22,22 +23,33 @@ class Core {
   // Returns an instance of the Core class.
   static Core& getInstance();
 
-  // Gets the REFERENCE to the pid list. Use
-  // refresh_pids() to actually update the list.
+  // Gets the REFERENCE to the pid list.
+  //
+  // Use refresh_pids() to actually update the list.
   std::vector<int>& get_pid_list();
 
   // Return info related to the passed pid.
   ProcessInfo get_pid_info(int pid);
 
-  // Reloades the pid list.
+  // Refreshes the pid list.
   void refresh_pids();
+
+  // Gets the REFERENCE to the SysMemoryUsage class
+  // thats containing the basic information about
+  // the system memory usage.
+  //
+  // Use refresh_Resources() to update this value.
+  SysMemoryInfo& get_memory_usage();
+
+  // Refreshes the global resource information.
+  void refresh_resources();
 
 private:
   Core();
 
-  bool init_;
   DIR* proc_dir_;
   std::vector<int> pids_;
+  SysMemoryInfo mem_info_;
 };
 
 }
