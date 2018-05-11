@@ -3,8 +3,10 @@
 
 #include <sys/types.h>
 #include <dirent.h>
+#include <map>
 #include <vector>
 
+#include "diskinfo.h"
 #include "processinfo.h"
 #include "sysmemoryinfo.h"
 
@@ -38,8 +40,14 @@ class Core {
   // thats containing the basic information about
   // the system memory usage.
   //
-  // Use refresh_Resources() to update this value.
+  // Use refresh_resources() to update this value.
   SysMemoryInfo& get_memory_usage();
+
+  // Gets the REFERENCE to the list containing
+  // information regarding disk usage in bytes.
+  //
+  // Use refresh_resources() to update this value.
+  std::map<std::string, DiskInfo>& get_disk_usage_info();
 
   // Refreshes the global resource information.
   void refresh_resources();
@@ -47,9 +55,13 @@ class Core {
 private:
   Core();
 
+  // Process related stuff
   DIR* proc_dir_;
   std::vector<int> pids_;
+
+  // Resource related stuff
   SysMemoryInfo mem_info_;
+  std::map<std::string, DiskInfo> disk_info_;
 };
 
 }

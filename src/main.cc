@@ -1,5 +1,6 @@
 #include <gtkmm.h>
 #include <iostream>
+#include <unistd.h>
 
 #include "common/core.h"
 #include "windows/mainwindow.h"
@@ -37,17 +38,20 @@ int main(int argc, char *argv[]) {
 
   /* ResourceView interaction example
 
-  ProcessMonitor::Core& core = ProcessMonitor::Core::getInstance();
-  ProcessMonitor::SysMemoryInfo& meminfo = core.get_memory_usage();
+  auto& core = ProcessMonitor::Core::getInstance();
+  auto& meminfo = core.get_memory_usage();
+  auto& diskinfo = core.get_disk_usage_info();
 
   while (true) {
     core.refresh_resources();
 
-    std::cout << "Memory: " << meminfo.memory_usage << " / " << meminfo.total_memory << std::endl;
-    std::cout << "Swap: " << meminfo.swap_usage << " / " << meminfo.total_swap << std::endl;
+    std::cout << "[Resource Usage]" << std::endl;
+    std::cout << "Memory: " << meminfo.memory_usage / 1073741824.0 << "GB / " << meminfo.total_memory / 1073741824.0 << "GB" << std::endl;
+    std::cout << "Swap: " << meminfo.swap_usage / 1073741824.0 << "GB / " << meminfo.total_swap / 1073741824.0 << "GB" << std::endl;
+    for (auto& info : diskinfo)
+      std::cout << "[" << info.second.name << "] Reads: " << info.second.reads << " Writes: " << info.second.writes << std::endl;
+    std::cout << std::endl;
 
-    // "lazy" pause
-    char c;
-    std::cin >> c;
+    sleep(1);
   }*/
 }
