@@ -8,6 +8,10 @@ src = [
   'main.cc',
 
   # widgets
+  'widgets/graphline.cc',
+  'widgets/graphline.h',
+  'widgets/graphview.cc',
+  'widgets/graphview.h',
   'widgets/processview.cc',
   'widgets/processview.h',
   'widgets/resourceview.cc',
@@ -16,7 +20,13 @@ src = [
   # common
   'common/core.cc',
   'common/core.h',
+  'common/cpuinfo.cc',
+  'common/cpuinfo.h',
+  'common/diskinfo.cc',
   'common/diskinfo.h',
+  'common/netinfo.cc',
+  'common/netinfo.h',
+  'common/processinfo.cc',
   'common/processinfo.h',
   'common/sysmemoryinfo.h',
 

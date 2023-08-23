@@ -1,7 +1,9 @@
-#ifndef PROCESSMONITOR_WIDGETS_GRAPHVIEW_H_
-#define PROCESSMONITOR_WIDGETS_GRAPHVIEW_H_
+#ifndef PROCESSMONITOR_WIDGETS_RESOURCEVIEW_H_
+#define PROCESSMONITOR_WIDGETS_RESOURCEVIEW_H_
 
 #include <gtkmm.h>
+
+#include "graphview.h"
 
 namespace ProcessMonitor {
 
@@ -12,6 +14,7 @@ class ResourceView : public Gtk::Box {
 
  private:
   Glib::RefPtr<Gtk::Builder> builder_;
+  GraphView* graph_view_;
 };
 
 }
